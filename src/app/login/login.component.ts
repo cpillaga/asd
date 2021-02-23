@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router:Router,
-    public _usuarioService: UsuarioService, 
-    public _empresaService: EmpresaService, 
+    public _usuarioService: UsuarioService,
+    public _empresaService: EmpresaService,
     
   ) { }
 
@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
     this._usuarioService.login(forma.value.usuario, forma.value.password)
       .subscribe(correcto =>
           {
+            console.log(correcto);
             localStorage.setItem('tokenFact', correcto.token);
             this.getEmpresaID(correcto);
             this.router.navigate(['/inicio']);
